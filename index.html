@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hola React</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://fb.me/react-0.13.3.min.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  </head>
+  <body>
+    <section id="user">
+        
+    </section>
+    <script type="text/jsx">
+        var User = React.createClass({
+            getInitialState : function(){
+                return {
+                    username : "@LeonidasEsteban",
+                    avatar : "twitter.jpg",
+                    description : "Lider de equipo frontend en @platzi"
+                }
+            },
+            changeUser : function(){
+                this.setState({
+                    username : "Leonidas Esteban",
+                    avatar : "facebook.jpg",
+                    description : "Lider de equipo frontend en @platzi"
+                })
+            },
+            render : function(){
+                var image = "./images/"+this.state.avatar;
+                return (
+                    <article className="User" onClick={this.changeUser}>
+                        <img src={image} className="User-avatar" width="100"/>
+                        <div className="User-description">
+                            <p className="User-name">{this.state.username}</p>
+                            <p>{this.state.description}</p>
+                        </div>
+                    </article>
+                )
+            }
+        })
+        React.render( <User/>, document.getElementById('user'))
+    </script>
+  </body>
+</html>
+
